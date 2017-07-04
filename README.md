@@ -11,7 +11,7 @@ None.
 
 ## Role Variables
 
-+ `docker_compose_version`: 1.14.0
++ `docker_compose_version`: `1.14.0`
 + `docker_compose_src`: `https://github.com/docker/compose/releases/download/{{ docker_compose_version }}/docker-compose-Linux-x86_64`
 + `docker_compose_dest`: `/usr/local/bin/docker-compose`
 
