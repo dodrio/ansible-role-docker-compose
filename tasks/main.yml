@@ -1,0 +1,13 @@
+---
+- name: "check docker-compose's version == {{ docker_compose_version }} ?"
+  shell: '{{ docker_compose_dest }} --version | grep {{ docker_compose_version }}'
+  ignore_errors: yes
+  register: check_result
+
+- name: be sure docker-compose-{{ docker_compose_version }} is installed
+  get_url:
+    url: '{{ docker_compose_src }}'
+    dest: '{{ docker_compose_dest }}'
+    force: yes
+    mode: 0755
+  when: check_result.rc != 0
